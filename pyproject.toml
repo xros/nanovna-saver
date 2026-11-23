@@ -7,7 +7,7 @@ authors = [
 maintainers = [
     { name = "Holger Mueller", email = "zarath@gmx.de" }
 ]
-requires-python = ">=3.10,<3.13"
+requires-python = ">=3.10"
 license = {text = "GPL-3.0-or-later"}
 readme = "README.rst"
 
@@ -72,8 +72,8 @@ requires = [
 # build-backend = 'setuptools.build_meta'
 # in-tree build backend, wrapper around setuptools, just to run ui-compile task
 # See also https://setuptools.pypa.io/en/latest/build_meta.html#dynamic-build-dependencies-and-other-build-meta-tweaks
-build-backend = "setuptools_wrapper"
-backend-path = ["src/tools"]
+build-backend = "src.tools.setuptools_wrapper"
+backend-path = ["."]
 
 [tool.setuptools.exclude-package-data]
 "*" = ['*.png', '*.ui', '*.qrc' ]
@@ -81,6 +81,7 @@ backend-path = ["src/tools"]
 [tool.setuptools.packages.find]
 # See https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html for more details
 where = ["src"]
+exclude = ["tools"]
 
 [tool.setuptools_scm]
 # For smarter version schemes and other configuration options,
